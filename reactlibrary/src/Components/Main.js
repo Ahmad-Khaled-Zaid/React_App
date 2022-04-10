@@ -1,20 +1,22 @@
 import React from "react";
 import HornedBeast from "./HornedBeast";
+import Cat from "../assest/cat2.jpg";
 class Main extends React.Component {
   render() {
-      console.log(this.props);
     return (
-      <div>
+      <main>
         <HornedBeast
           title="Horned Beast One"
           description="HHHHHHHHHHHHHHHHHHHHHHHHHHH"
           image="https://www.drivethrurpg.com/images/11262/328856.jpg"
         />
-        <HornedBeast 
-           title="Horned Beast One"
+        <HornedBeast
+          title="Horned Beast One"
           description="HHHHHHHHHHHHHHHHHHHHHHHHHHH"
-          image="https://www.drivethrurpg.com/images/11262/328856.jpg"/>
-      </div>
+          image="https://www.drivethrurpg.com/images/11262/328856.jpg"
+        />
+        <img src={Cat} alt="cat" />
+      </main>
     );
   }
 }
