@@ -1,20 +1,15 @@
-// import logo from "./logo.svg";
-import "./App.css";
 import React from "react";
-import Header from "./Components/Header";
-import Main from "./Components/Main";
-import Footer from "./Components/Footer";
-
+import Parent from "./components/Parent";
+import Child from "./components/Child";
+// import style from './App.css';
 class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
-        <Main />
-        <Footer />
+        ahmad is getting started
+        <Parent />
       </div>
     );
   }
 }
-
 export default App;
