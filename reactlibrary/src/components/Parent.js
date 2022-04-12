@@ -1,30 +1,30 @@
 import React from "react";
-import Cat from "../assest/cat2.jpg";
 import Child from "./Child";
-class Parent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      increase: 0,
-    };
-  }
+import data from "../assest/data.json";
 
-  addOne = () => {
+class Parent extends React.Component {
+  state = {
+    votes: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  };
+
+  addVoted = (event) => {
     this.setState({
-      increase: this.state.increase + 1,
+      votes: this.state.votes[parseInt(event.target.id)] ,
     });
-    console.log(this.state.increase);
+    console.log(this.state.votes);
   };
 
   render() {
-    return (
-      <div>
-        <p>I'm the parent {this.state.increase}</p>
-        <img src={Cat} alt={Cat}></img>
-        <Child in increaseChild={this.state.increase} />
-        <button onClick={this.addOne}>click me</button>
-      </div>
-    );
+    return data.map((value, index) => (
+      <Child
+        title={value.title}
+        text={value.description}
+        image={value.image_url}
+        btn={this.addVoted}
+        vote={this.state.votes[index]}
+        idx={index}
+      />
+    ));
   }
 }
 export default Parent;
