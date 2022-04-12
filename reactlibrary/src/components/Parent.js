@@ -1,36 +1,30 @@
 import React from "react";
 import Child from "./Child";
+import data from "../assest/data.json";
 
 class Parent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      increase: 0,
-    };
-  }
+  state = {
+    votes: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  };
 
-  addOne = () => {
+  addVoted = (event) => {
     this.setState({
-      increase: this.state.increase + 1,
+      votes: this.state.votes[parseInt(event.target.id)] + 4,
     });
-    alert(this.state.increase);
-
+    console.log(this.state.votes);
   };
 
-  print = () => {
-    console.log("hello");
-  };
   render() {
-    return (
-      <div>
-        <Child
-          title="ahmad"
-          text="testtesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-          clickFunction={this.addOne}
-          counter={this.state.increase}
-        />
-      </div>
-    );
+    return data.map((value, index) => (
+      <Child
+        title={value.title}
+        text={value.description}
+        image={value.image_url}
+        btn={this.addVoted}
+        vote={this.state.votes[index]}
+        idx={index}
+      />
+    ));
   }
 }
 export default Parent;
