@@ -1,34 +1,22 @@
 import React from "react";
 import Child from "./Child";
+import data from "../assest/data.json";
 
 class Parent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      increase: 0,
-    };
-  }
+ 
 
-  addOne = () => {
-    this.setState({
-      increase: this.state.increase + 1,
-    });
-    alert(this.state.increase);
-
-  };
-
-  print = () => {
-    console.log("hello");
-  };
   render() {
     return (
       <div>
-        <Child
-          title="ahmad"
-          text="testtesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-          clickFunction={this.addOne}
-          counter={this.state.increase}
-        />
+        {data.map((Beast) => {
+          return (
+            <Child
+              title={Beast.title}
+              text={Beast.description}
+              image={Beast.image_url}
+            />
+          );
+        })}
       </div>
     );
   }
