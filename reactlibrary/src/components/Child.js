@@ -3,6 +3,15 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 class Child extends React.Component {
+  state = {
+    votes: 0,
+  };
+
+  addVoted = () => {
+    this.setState({
+      votes: this.state.votes + 1,
+    });
+  };
   render() {
     return (
       <Card style={{ width: "18rem" }}>
@@ -11,8 +20,9 @@ class Child extends React.Component {
           <Card.Title>{this.props.title}</Card.Title>
           <Card.Text>{this.props.text}</Card.Text>
           <Card.Text>{this.props.vote}</Card.Text>
+          <Card.Text>{this.state.votes}</Card.Text>
 
-          <Button id={this.props.idx} onClick={this.props.btn}>
+          <Button  onClick={this.addVoted}>
             Pick this Horned Beast
           </Button>
         </Card.Body>
