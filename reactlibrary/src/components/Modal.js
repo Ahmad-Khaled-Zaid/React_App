@@ -4,19 +4,24 @@ import Button from "react-bootstrap/Button";
 class DataModal extends React.Component {
   render() {
     return (
-      <>
-        <Modal show={this.props.show}>
-          <Modal.Header closeButton onClick={this.props.close}>
-            <Modal.Title>{this.props.title}</Modal.Title>
+      <div>
+        <Modal show={this.props.show} style={{ height: "100%" }}>
+          <Modal.Header onClick={this.props.close}>
+            <Modal.Title>{this.props.selectedBeasts.title}</Modal.Title>
           </Modal.Header>
-          <Modal.Body>{this.props.text}</Modal.Body>
-          <img src={this.props.image} alt={`${this.props.title} image`} />
+          <Modal.Body>{this.props.selectedBeasts.description}</Modal.Body>
+          <img
+            src={this.props.selectedBeasts.image_url}
+            alt={this.props.title}
+          />
+
           <Modal.Footer>
-            <Button onClick={this.props.close}>Close</Button>
-            <Button onClick={this.props.close}>Save Changes</Button>
+            <Button variant="secondary" onClick={this.props.close}>
+              Close
+            </Button>
           </Modal.Footer>
         </Modal>
-      </>
+      </div>
     );
   }
 }
